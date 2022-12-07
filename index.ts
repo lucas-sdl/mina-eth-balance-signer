@@ -2,7 +2,7 @@ const Koa = require("koa");
 const Router = require("@koa/router");
 const { isReady, PrivateKey, Field, Signature } = require("snarkyjs");
 
-import axios from 'axios';
+const { axios } = require('axios');
 
 const PORT = process.env.PORT || 3000;
 
