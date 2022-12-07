@@ -11,7 +11,7 @@ const router = new Router();
 
 const moralis_api_key = 'J5wHxshtaWb7C91qgDtoVKYiVswqlV0tVjHmde5hrupiQWCuUCBDDNVbxQkKPAmb';
 
-export async function getEthBalance(ethWalletAddress: string) {
+async function getEthBalance(ethWalletAddress: string) {
     // We need to wait for SnarkyJS to finish loading before we can do anything
     await isReady;
   
