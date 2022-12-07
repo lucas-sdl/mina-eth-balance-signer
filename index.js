@@ -63,8 +63,8 @@ async function getEthBalance(ethWalletAddress) {
     };
   }
 
-router.get("/address/:id", async (ctx) => {
-  ctx.body = await getEthBalance(ctx.params.id);
+router.get("/address/:ethWalletAddress", async (ctx) => {
+  ctx.body = await getEthBalance(ctx.params.ethWalletAddress);
 });
 
 app.use(router.routes()).use(router.allowedMethods());
