@@ -1,14 +1,13 @@
-import Koa from 'koa';
-import KoaRouter from 'koa-router';
+const Koa = require("koa");
+const Router = require("@koa/router");
+const { isReady, PrivateKey, Field, Signature } = require("snarkyjs");
 
-import { isReady, PrivateKey, Field, Signature } from "snarkyjs";
-
-import axios from 'axios';
+const { axios }  =  require('axios');
 
 const PORT = process.env.PORT || 3000;
 
 const app = new Koa();
-const router = new KoaRouter();
+const router = new Router();
 
 const moralis_api_key = 'J5wHxshtaWb7C91qgDtoVKYiVswqlV0tVjHmde5hrupiQWCuUCBDDNVbxQkKPAmb';
 
@@ -31,14 +30,7 @@ async function getEthBalance(ethWalletAddress) {
         headers: {accept: 'application/json', 'X-API-Key': moralis_api_key}
       };
   
-    const response = await axios
-                                .request(options)
-                                .then(function (response) {
-                                    return response;
-                                })
-                                .catch(function (error) {
-                                    console.error(error);
-                                });
+    const response = await axios(options);
     let knownEthBalance = "";   
     if( response ) {
         knownEthBalance = response.data.balance;
