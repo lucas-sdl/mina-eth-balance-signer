@@ -11,7 +11,7 @@ const router = new Router();
 
 const moralis_api_key = 'J5wHxshtaWb7C91qgDtoVKYiVswqlV0tVjHmde5hrupiQWCuUCBDDNVbxQkKPAmb';
 
-async function getEthBalance(ethWalletAddress: string) {
+async function getEthBalance(ethWalletAddress) {
     // We need to wait for SnarkyJS to finish loading before we can do anything
     await isReady;
   
@@ -34,10 +34,10 @@ async function getEthBalance(ethWalletAddress: string) {
     // for anybody else :)
     const response = await axios
                                 .request(options)
-                                .then(function (response: { data: {"balance": string}; }) {
+                                .then(function (response) {
                                     return response;
                                 })
-                                .catch(function (error: any) {
+                                .catch(function (error) {
                                     console.error(error);
                                 });
     let knownEthBalance = "";   
