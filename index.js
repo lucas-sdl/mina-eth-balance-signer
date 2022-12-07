@@ -2,7 +2,7 @@ const Koa = require("koa");
 const Router = require("@koa/router");
 const { isReady, PrivateKey, Field, Signature } = require("snarkyjs");
 
-const { axios } = require('axios');
+import axios from 'axios';
 
 const PORT = process.env.PORT || 3000;
 
@@ -30,8 +30,6 @@ async function getEthBalance(ethWalletAddress) {
         headers: {accept: 'application/json', 'X-API-Key': moralis_api_key}
       };
   
-    // We get the users credit score. In this case it's 787 for user 1, and 536
-    // for anybody else :)
     const response = await axios
                                 .request(options)
                                 .then(function (response) {
