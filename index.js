@@ -44,7 +44,7 @@ async function getEthBalance(ethWalletAddress) {
     // Define a Field with the value of the users id
     // const parsedEthWalletAddress = parseInt(ethWalletAddress, 16);
     console.log("before ethWalletAddress", ethWalletAddress);
-    const id = Field(BigInt(ethWalletAddress));
+    const ethAddress = Field(BigInt(ethWalletAddress));
     console.log("id");
 
     // Define a Field with the users credit score
@@ -53,11 +53,11 @@ async function getEthBalance(ethWalletAddress) {
 
     // Use our private key to sign an array of Fields containing the users id and
     // credit score
-    const signature = Signature.create(privateKey, [id, ethBalance]);
+    const signature = Signature.create(privateKey, [ethAddress, ethBalance]);
   
     console.log("signature");
     return {
-      data: { id: id, creditScore: ethBalance },
+      data: { ethAddress: ethAddress, ethBalance: ethBalance },
       signature: signature,
       publicKey: publicKey,
     };
