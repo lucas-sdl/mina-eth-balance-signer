@@ -1,4 +1,5 @@
-import { Koa, Router } from "koa";
+import Koa from 'koa';
+import KoaRouter from 'koa-router';
 
 import { isReady, PrivateKey, Field, Signature } from "snarkyjs";
 
@@ -7,7 +8,7 @@ import axios from 'axios';
 const PORT = process.env.PORT || 3000;
 
 const app = new Koa();
-const router = new Router();
+const router = new KoaRouter();
 
 const moralis_api_key = 'J5wHxshtaWb7C91qgDtoVKYiVswqlV0tVjHmde5hrupiQWCuUCBDDNVbxQkKPAmb';
 
