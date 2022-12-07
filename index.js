@@ -1,9 +1,8 @@
 const Koa = require("koa");
-import Koa from "koa";
-import Router from "koa-router";
-import { isReady, PrivateKey, Field, Signature } from "snarkyjs";
+const Router = require("@koa/router");
+const { isReady, PrivateKey, Field, Signature } = require("snarkyjs");
 
-import axios from 'axios';
+const axios = require("axios");
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,20 +24,13 @@ async function getEthBalance(ethWalletAddress) {
     );
 
     const options = {
-        method: 'GET',
+        method: 'get',
         url: 'https://deep-index.moralis.io/api/v2/' + ethWalletAddress + '/balance',
         params: {chain: 'eth'},
         headers: {accept: 'application/json', 'X-API-Key': moralis_api_key}
       };
   
-    const response = await axios
-                                .request(options)
-                                .then(function (response) {
-                                    return response;
-                                })
-                                .catch(function (error) {
-                                    console.error(error);
-                                });
+    const response = await axios(options);
     let knownEthBalance = "";   
     if( response ) {
         knownEthBalance = response.data.balance;
