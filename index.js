@@ -1,4 +1,4 @@
-import { Koa, Router } from "@koa";
+import { Koa, Router } from "koa";
 
 import { isReady, PrivateKey, Field, Signature } from "snarkyjs";
 
