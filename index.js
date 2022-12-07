@@ -1,6 +1,6 @@
-const Koa = require("koa");
-const Router = require("@koa/router");
-const { isReady, PrivateKey, Field, Signature } = require("snarkyjs");
+import { Koa, Router } from "@koa";
+
+import { isReady, PrivateKey, Field, Signature } from "snarkyjs";
 
 import axios from 'axios';
 
